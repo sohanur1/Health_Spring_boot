@@ -1,9 +1,6 @@
 package com.example.health.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 import javax.persistence.*;
 
@@ -12,132 +9,143 @@ import javax.persistence.*;
 public class MasterMedicine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    private int Id;
+    @Column(name = "manufacturer")
+    private String Manufacturer;
+    @Column(name = "catagory")
+    private String Category;
+    @Column(name = "dosage_brand_strength_old")
+    private String DosageBrandStrengthOld;
+    @Column(name = "dosage_description")
+    private  String DosageDescription;
+    @Column(name = "brand_name")
+    private String BrandName;
+    @Column(name = "strength_name")
+    private  String StrengthName;
+    @Column(name = "dosage_brand_strength")
+    private String DosageBrandStrength;
+    @Column(name = "brand_name_old")
+    private String BrandNameOld;
+    @Column(name = "generic_name")
+    private String GenericName;
+    @Column(name = "strength_old")
+    private String StrengthOld;
+    @Column(name = "doases_description_old")
+    private String DosagesDescriptionOld;
+    @Column(name = "usefor")
+    private  String UseFor;
+    @Column(name = "dar")
+    private String Dar;
 
-    private String manufacturer;
-
-    private String catagory;
-    private String dosage_brand_strength_old;
-    private  String dosage_description;
-    private String brand_name;
-    private  String strength_name;
-    private String dosage_brand_strength;
-    private String brand_name_old;
-    private String generic_name;
-    private String strength_old;
-    private String doases_description_old;
-    private  String usefor;
-    private String dar;
-
-    public long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         Id = id;
     }
 
     public String getManufacturer() {
-        return manufacturer;
+        return Manufacturer;
     }
 
     public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+        Manufacturer = manufacturer;
     }
 
-    public String getCatagory() {
-        return catagory;
+    public String getCategory() {
+        return Category;
     }
 
-    public void setCatagory(String catagory) {
-        this.catagory = catagory;
+    public void setCategory(String category) {
+        Category = category;
     }
 
-    public String getDosage_brand_strength_old() {
-        return dosage_brand_strength_old;
+    public String getDosageBrandStrengthOld() {
+        return DosageBrandStrengthOld;
     }
 
-    public void setDosage_brand_strength_old(String dosage_brand_strength_old) {
-        this.dosage_brand_strength_old = dosage_brand_strength_old;
+    public void setDosageBrandStrengthOld(String dosageBrandStrengthOld) {
+        DosageBrandStrengthOld = dosageBrandStrengthOld;
     }
 
-    public String getDosage_description() {
-        return dosage_description;
+    public String getDosageDescription() {
+        return DosageDescription;
     }
 
-    public void setDosage_description(String dosage_description) {
-        this.dosage_description = dosage_description;
+    public void setDosageDescription(String dosageDescription) {
+        DosageDescription = dosageDescription;
     }
 
-    public String getBrand_name() {
-        return brand_name;
+    public String getBrandName() {
+        return BrandName;
     }
 
-    public void setBrand_name(String brand_name) {
-        this.brand_name = brand_name;
+    public void setBrandName(String brandName) {
+        BrandName = brandName;
     }
 
-    public String getStrength_name() {
-        return strength_name;
+    public String getStrengthName() {
+        return StrengthName;
     }
 
-    public void setStrength_name(String strength_name) {
-        this.strength_name = strength_name;
+    public void setStrengthName(String strengthName) {
+        StrengthName = strengthName;
     }
 
-    public String getDosage_brand_strength() {
-        return dosage_brand_strength;
+    public String getDosageBrandStrength() {
+        return DosageBrandStrength;
     }
 
-    public void setDosage_brand_strength(String dosage_brand_strength) {
-        this.dosage_brand_strength = dosage_brand_strength;
+    public void setDosageBrandStrength(String dosageBrandStrength) {
+        DosageBrandStrength = dosageBrandStrength;
     }
 
-    public String getBrand_name_old() {
-        return brand_name_old;
+    public String getBrandNameOld() {
+        return BrandNameOld;
     }
 
-    public void setBrand_name_old(String brand_name_old) {
-        this.brand_name_old = brand_name_old;
+    public void setBrandNameOld(String brandNameOld) {
+        BrandNameOld = brandNameOld;
     }
 
-    public String getGeneric_name() {
-        return generic_name;
+    public String getGenericName() {
+        return GenericName;
     }
 
-    public void setGeneric_name(String generic_name) {
-        this.generic_name = generic_name;
+    public void setGenericName(String genericName) {
+        GenericName = genericName;
     }
 
-    public String getStrength_old() {
-        return strength_old;
+    public String getStrengthOld() {
+        return StrengthOld;
     }
 
-    public void setStrength_old(String strength_old) {
-        this.strength_old = strength_old;
+    public void setStrengthOld(String strengthOld) {
+        StrengthOld = strengthOld;
     }
 
-    public String getDoases_description_old() {
-        return doases_description_old;
+    public String getDosagesDescriptionOld() {
+        return DosagesDescriptionOld;
     }
 
-    public void setDoases_description_old(String doases_description_old) {
-        this.doases_description_old = doases_description_old;
+    public void setDosagesDescriptionOld(String dosagesDescriptionOld) {
+        DosagesDescriptionOld = dosagesDescriptionOld;
     }
 
-    public String getUsefor() {
-        return usefor;
+    public String getUseFor() {
+        return UseFor;
     }
 
-    public void setUsefor(String usefor) {
-        this.usefor = usefor;
+    public void setUseFor(String useFor) {
+        UseFor = useFor;
     }
 
     public String getDar() {
-        return dar;
+        return Dar;
     }
 
     public void setDar(String dar) {
-        this.dar = dar;
+        Dar = dar;
     }
 }
