@@ -3,6 +3,7 @@ package com.example.health.controller;
 import com.example.health.model.MasterMedicine;
 import com.example.health.repository.MasterMedicineRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 public class MasterMedicineController {
 
+    @Autowired
     private MasterMedicineRepository masterMedicineRepository;
 
     public MasterMedicineController(MasterMedicineRepository masterMedicineRepository) {
@@ -36,4 +38,9 @@ public class MasterMedicineController {
        return masterMedicineRepository.save(master);
 
     }
+    @GetMapping("/master_medicine/user")
+    public List<Object[]>  getMed(){
+        return masterMedicineRepository.medi();
+    }
+
 }
