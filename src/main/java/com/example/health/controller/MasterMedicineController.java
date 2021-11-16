@@ -1,6 +1,8 @@
 package com.example.health.controller;
 
+import com.example.health.DTO.MasterMedi;
 import com.example.health.model.MasterMedicine;
+
 import com.example.health.repository.MasterMedicineRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,28 +21,33 @@ public class MasterMedicineController {
         this.masterMedicineRepository = masterMedicineRepository;
     }
 
-    @GetMapping("/master_medicine")
-    public List<MasterMedicine> fetchByMasterMedicine(){
-        List<MasterMedicine> medicineList = new ArrayList<>();
-        System.out.println("Get Controller");
-        try{
-            medicineList = masterMedicineRepository.findAll();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    @GetMapping("/api/master_medicine/join")
+    public List<MasterMedi> fetchByMasterMedicine(){
 
-        return medicineList;
+        return masterMedicineRepository.medi();
+
+
+
+
+
+
+//        List<MasterMedicine> medicineList = new ArrayList<>();
+//        System.out.println("Get Controller");
+//        try{
+//            medicineList = masterMedicineRepository.findAll();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//
+//        return medicineList;
     }
-    @PostMapping("/master_medicine")
+    @PostMapping("/api/master_medicine")
     private MasterMedicine saveMasterMedicine(@RequestBody MasterMedicine master){
         System.out.println("save controller");
 
        return masterMedicineRepository.save(master);
 
     }
-    @GetMapping("/master_medicine/user")
-    public List<Object[]>  getMed(){
-        return masterMedicineRepository.medi();
-    }
+
 
 }
