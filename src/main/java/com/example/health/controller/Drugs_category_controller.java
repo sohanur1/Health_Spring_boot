@@ -17,6 +17,6 @@ public class Drugs_category_controller {
     @GetMapping("/drug_category")
     public List<drugs_category> fetchByDrugCategory(){
         return healthRepository.findAll();
-
     }
+
 }

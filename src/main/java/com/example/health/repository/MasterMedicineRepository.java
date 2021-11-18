@@ -1,11 +1,14 @@
 package com.example.health.repository;
 
 import com.example.health.DTO.MasterMedi;
+import com.example.health.DTO.MasterReq;
 import com.example.health.model.MasterMedicine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Id;
 import java.util.List;
 
 @Repository
@@ -29,6 +32,11 @@ public interface MasterMedicineRepository extends JpaRepository<MasterMedicine,L
             "             left join demo.drugs_category \n" +
             "            on demo.master_medicine.catagory=demo.drugs_category.id",nativeQuery = true)
     List<MasterMedi> medi();
+
+    @Query(value = "update master_medicine" +
+            "set master_medicine.catagory= :categoryId" +
+            "where id = :id",nativeQuery = true)
+    MasterReq medic(@Param("id") int id ,@Param("categoryId") String categoryId);
 
 
 }

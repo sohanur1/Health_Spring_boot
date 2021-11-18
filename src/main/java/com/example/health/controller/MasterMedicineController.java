@@ -1,6 +1,7 @@
 package com.example.health.controller;
 
 import com.example.health.DTO.MasterMedi;
+import com.example.health.DTO.MasterReq;
 import com.example.health.model.MasterMedicine;
 
 import com.example.health.repository.MasterMedicineRepository;
@@ -8,8 +9,12 @@ import com.example.health.repository.MasterMedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Id;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @CrossOrigin(maxAge = 3600)
 @RestController
 public class MasterMedicineController {
@@ -42,12 +47,28 @@ public class MasterMedicineController {
 //        return medicineList;
     }
     @PostMapping("/api/master_medicine")
-    private MasterMedicine saveMasterMedicine(@RequestBody MasterMedicine master){
+    public MasterMedicine saveMasterMedicine(@RequestBody MasterMedicine master){
         System.out.println("save controller");
 
        return masterMedicineRepository.save(master);
 
     }
+
+    @PostMapping("/api/update/category")
+    public MasterReq updateRequired(@RequestBody MasterReq masterMedicine){
+//        Map<String, Object> response = new HashMap<>();
+
+        MasterReq masterReq= new MasterReq();
+
+        try {
+            masterReq = masterMedicineRepository.medic(masterMedicine.getId(), masterMedicine.getCategory());
+        }catch (Exception e){
+
+        }
+        return masterReq;
+    }
+
+
 
 
 }
