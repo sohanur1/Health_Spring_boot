@@ -1,32 +1,34 @@
 package com.example.health.DTO;
 
-public class MasterReq {
+import java.io.Serializable;
 
-    int Id;
-    String Category;
-    String DosageBrandStrength;
+public class MasterReq implements Serializable {
+
+    int id;
+    String category;
+    String dosageBrandStrength;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        this.category = category;
     }
 
     public String getDosageBrandStrength() {
-        return DosageBrandStrength;
+        return dosageBrandStrength;
     }
 
     public void setDosageBrandStrength(String dosageBrandStrength) {
-        DosageBrandStrength = dosageBrandStrength;
+        this.dosageBrandStrength = dosageBrandStrength;
     }
 }

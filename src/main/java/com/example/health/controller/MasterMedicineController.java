@@ -7,6 +7,7 @@ import com.example.health.model.MasterMedicine;
 import com.example.health.repository.MasterMedicineRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Id;
@@ -54,18 +55,19 @@ public class MasterMedicineController {
 
     }
 
+    @Transactional
     @PostMapping("/api/update/category")
-    public MasterReq updateRequired(@RequestBody MasterReq masterMedicine){
-//        Map<String, Object> response = new HashMap<>();
-
-        MasterReq masterReq= new MasterReq();
+    public Map<String, Object> updateRequired(@RequestBody MasterReq masterReq){
+        Map<String, Object> response = new HashMap<>();
 
         try {
-            masterReq = masterMedicineRepository.medic(masterMedicine.getId(), masterMedicine.getCategory());
+            masterMedicineRepository.medic(masterReq.getId(), masterReq.getCategory());
+            response.put("success", true);
         }catch (Exception e){
-
+            e.printStackTrace();
+            response.put("success", false);
         }
-        return masterReq;
+        return response;
     }
 
 
