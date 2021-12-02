@@ -6,6 +6,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="master_medicine")
+
+/*sohanur islam
+12/11/2021
+11:00 AM*/
 public class MasterMedicine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

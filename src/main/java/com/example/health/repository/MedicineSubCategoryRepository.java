@@ -1,9 +1,11 @@
 package com.example.health.repository;
 
-import com.example.health.model.medicine_sub_category;
+import com.example.health.model.MedicineSubCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+/*sohanur islam
+12/11/2021*/
 @Repository
-public interface MedicineSubCategoryRepository extends JpaRepository<medicine_sub_category,Long> {
+public interface MedicineSubCategoryRepository extends JpaRepository<MedicineSubCategory,Long> {
 }

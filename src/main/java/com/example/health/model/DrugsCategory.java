@@ -3,9 +3,12 @@ package com.example.health.model;
 import javax.persistence.*;
 
 @Entity
-
 @Table(name = "drugs_category")
-public class drugs_category {
+
+/*sohanur islam
+12/11/2021
+9:00 AM*/
+public class DrugsCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;

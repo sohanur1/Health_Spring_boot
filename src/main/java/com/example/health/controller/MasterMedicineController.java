@@ -18,6 +18,10 @@ import java.util.Map;
 
 @CrossOrigin(maxAge = 3600)
 @RestController
+
+    /*sohanur islam
+    12/11/2021
+    11:30 AM*/
 public class MasterMedicineController {
 
     @Autowired
@@ -27,26 +31,15 @@ public class MasterMedicineController {
         this.masterMedicineRepository = masterMedicineRepository;
     }
 
+    // fetch master medicine
     @GetMapping("/api/master_medicine/join")
     public List<MasterMedi> fetchByMasterMedicine(){
 
         return masterMedicineRepository.medi();
 
 
-
-
-
-
-//        List<MasterMedicine> medicineList = new ArrayList<>();
-//        System.out.println("Get Controller");
-//        try{
-//            medicineList = masterMedicineRepository.findAll();
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//        return medicineList;
     }
+    // save master medicine
     @PostMapping("/api/master_medicine")
     public MasterMedicine saveMasterMedicine(@RequestBody MasterMedicine master){
         System.out.println("save controller");
@@ -55,6 +48,7 @@ public class MasterMedicineController {
 
     }
 
+    // update master medicine category
     @Transactional
     @PostMapping("/api/update/category")
     public Map<String, Object> updateRequired(@RequestBody MasterReq masterReq){

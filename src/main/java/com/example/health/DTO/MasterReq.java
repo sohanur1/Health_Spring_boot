@@ -2,6 +2,9 @@ package com.example.health.DTO;
 
 import java.io.Serializable;
 
+  /*sohanur islam
+  17/11/2021
+  2:00PM*/
 public class MasterReq implements Serializable {
 
     int id;

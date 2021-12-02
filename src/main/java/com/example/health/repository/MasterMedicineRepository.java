@@ -12,8 +12,12 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.Id;
 import java.util.List;
 
+/*sohanur islam
+16/11/2021
+10:00 AM*/
 @Repository
 public interface MasterMedicineRepository extends JpaRepository<MasterMedicine,Long> {
+    // implement native query for get data from master medicine table
     @Query(value = "SELECT      demo.master_medicine.id as id,\n" +
             "            demo.master_medicine.manufacturer as manufacturer,\n" +
             "            demo.master_medicine.catagory as category,\n" +
@@ -34,6 +38,7 @@ public interface MasterMedicineRepository extends JpaRepository<MasterMedicine,L
             "            on demo.master_medicine.catagory=demo.drugs_category.id",nativeQuery = true)
     List<MasterMedi> medi();
 
+    //implement native query for update data from master medicine
     @Modifying
     @Query(value = "update master_medicine" +
             " set master_medicine.catagory= :categoryId" +
